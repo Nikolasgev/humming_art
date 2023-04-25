@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485071886027",
+    "project_id": "hart-2349f",
+    "storage_bucket": "hart-2349f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485071886027:android:bb54500bdd1365f3f8ad4e",
+        "android_client_info": {
+          "package_name": "com.example.humming_art"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485071886027-9v9soos66a5gne5auf3bbi47v8pbvi86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0gsfq34Wq-8al_UZjjIYgXfBipfnUieQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485071886027-9v9soos66a5gne5auf3bbi47v8pbvi86.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
