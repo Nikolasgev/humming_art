@@ -16,9 +16,9 @@ class SignInCheck extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ProfilePage();
+            return const ProfilePage();
           } else {
-            return AuthPage();
+            return const AuthPage();
           }
         }
         ),

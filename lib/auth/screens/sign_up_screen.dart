@@ -1,9 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
+import 'package:humming_art/components/password_text_field.dart';
 import 'package:humming_art/components/sign_button.dart';
-import '../../styles.dart';
 
 import '../../components/text_field.dart';
 
@@ -49,11 +48,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-     return BGforScreens(image: AssetImage("assets/images/bg_login_scree.png"), 
+     return BGforScreens(image: const AssetImage("assets/images/bg_login_scree.png"), 
      child: Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,15 +70,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ), 
                       )
                     ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
 
-                  Text('New users are always welcome!', style: TextStyle(fontSize: 18, color: Colors.white),),
+                  const Text('New users are always welcome!', style: TextStyle(fontSize: 18, color: Colors.white),),
 
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
-                  Text('Already a member?', style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 202, 194, 194)),),
+                  const Text('Already a member?', style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 202, 194, 194)),),
 
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
 
                   GestureDetector(
                     onTap: widget.showSignInPage,
@@ -89,9 +88,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 139, 135, 124), 
+                    color: const Color.fromARGB(255, 139, 135, 124), 
                     ), 
-                      child: Text('Sign In'),
+                      child: const Text('Sign In'),
                     ),
                   ),
 
@@ -104,14 +103,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Column(
               children: [
                 ComonTextField(icon: Icons.perm_identity_rounded, hintText: "email", controller: _emailController),
-    
             const SizedBox(height: 40,),
-
-                ComonTextField(icon: Icons.lock_outline, hintText: 'password', controller: _passwordController),
-
+                PasswordTextField(icon: Icons.lock_outline, hintText: 'password', controller: _passwordController,),
                 const SizedBox(height: 40,),
-    
-                ComonTextField(icon: Icons.lock_open_outlined, hintText: 'confirm password', controller: _passwordController),
+                PasswordTextField(icon: Icons.lock_open_outlined, hintText: 'confirm password', controller: _confirmPasswordController,),
               ],
             ),
     

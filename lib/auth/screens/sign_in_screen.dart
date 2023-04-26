@@ -1,9 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
 import 'package:humming_art/components/sign_button.dart';
 import 'package:humming_art/components/text_field.dart';
+import '../../components/password_text_field.dart';
 import 'forgot_pw_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -16,7 +16,6 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
 
-  @override
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -25,6 +24,7 @@ class _SignInScreenState extends State<SignInScreen> {
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim()
       );
+    
   }
 
   @override
@@ -36,12 +36,12 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BGforScreens(image: AssetImage("assets/images/bg_login_scree.png"), 
+    return BGforScreens(image: const AssetImage("assets/images/bg_login_scree.png"), 
     child: 
     Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,19 +51,19 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 300,
                     child: Text('Welcome back!', style: TextStyle(fontSize: 50, color: Colors.white), )
                     ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
 
-                  Text('Glad to see you again!', style: TextStyle(fontSize: 12, color: Colors.white),),
+                  const Text('Glad to see you again!', style: TextStyle(fontSize: 12, color: Colors.white),),
 
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
-                  Text('Not a member?', style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 202, 194, 194)),),
+                  const Text('Not a member?', style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 202, 194, 194)),),
 
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
 
                   GestureDetector(
                     onTap: widget.showSignUpScreen,
@@ -73,9 +73,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 139, 135, 124), 
+                    color: const Color.fromARGB(255, 139, 135, 124), 
                     ), 
-                      child: Text('Register now!'),
+                      child: const Text('Register now!'),
                     ),
                   ),
 
@@ -91,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
     
             const SizedBox(height: 40,),
 
-                ComonTextField(icon: Icons.lock_outline, hintText: 'password', controller: _passwordController),
+                PasswordTextField(icon: Icons.lock_outline, hintText: 'password', controller: _passwordController,),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
@@ -101,11 +101,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       GestureDetector(
                         onTap: () {Navigator.push(context, 
                         MaterialPageRoute(builder: (context) {
-                          return ForgotPaswordScreen();
+                          return const ForgotPaswordScreen();
                             })
                           );
                         },
-                        child: Text('Forgot your password?', style: TextStyle(color: Colors.grey, fontSize: 16), )
+                        child: const Text('Forgot your password?', style: TextStyle(color: Colors.grey, fontSize: 16), )
                         ),
                     ],
                   ),

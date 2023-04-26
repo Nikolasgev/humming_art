@@ -11,7 +11,7 @@ class MyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(10),
+    return Padding(padding: const EdgeInsets.all(10),
       child: Column(
         children: [
           Expanded(
@@ -19,7 +19,7 @@ class MyCard extends StatelessWidget {
               height: 180,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFFED2A0),
+                color: const Color(0xFFFED2A0),
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
@@ -27,22 +27,22 @@ class MyCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color.fromARGB(255, 68, 68, 68).withOpacity(0.5),
+                        color: const Color.fromARGB(255, 68, 68, 68).withOpacity(0.5),
                         spreadRadius: 4,
                         blurRadius: 10,
-                        offset: Offset(1, 3),
+                        offset: const Offset(1, 3),
                       )
                     ],
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: Image(image: AssetImage('assets/images/cl.jpeg'), fit: BoxFit.cover,)
+                    child: const Image(image: AssetImage('assets/images/cl.jpeg'), fit: BoxFit.cover,)
                     ),
                 ),
               ),
             ),
           ),
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,17 +50,17 @@ class MyCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Mona Lisa'),
+                  const Text('Mona Lisa'),
                   Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Icon(Icons.person_outlined, size: 18,),
                       Text('Leo'),
                     ],
                   )
                 ],
               ),
-              Text('500.000 \$'),
+              const Text('500.000 \$'),
             ],
           )
         ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SignButton extends StatelessWidget {
-  const SignButton({super.key, required, required this.onTap, required this.text});
+  const SignButton({super.key, required this.onTap, required this.text});
 
   final void Function() onTap;
   final String text;
@@ -16,9 +16,9 @@ class SignButton extends StatelessWidget {
                         height: 70,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(23),
-                          color: Color.fromARGB(255, 254, 245, 218)
+                          color: const Color.fromARGB(255, 254, 245, 218)
                         ),
-                        child: Text(text, style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, color: Colors.black),),
+                        child: Text(text, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w500, color: Colors.black),),
                       ),
                     );
   }

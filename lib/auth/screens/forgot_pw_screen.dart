@@ -1,14 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
 import 'package:humming_art/components/sign_button.dart';
 import 'package:humming_art/components/text_field.dart';
 
 class ForgotPaswordScreen extends StatefulWidget {
-  ForgotPaswordScreen({super.key,});
+  const ForgotPaswordScreen({super.key,});
 
   
 
@@ -46,7 +43,7 @@ class _ForgotPaswordScreenState extends State<ForgotPaswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BGforScreens(image: AssetImage("assets/images/bg.png"),
+    return BGforScreens(image: const AssetImage("assets/images/bg.png"),
     child: Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
@@ -54,8 +51,8 @@ class _ForgotPaswordScreenState extends State<ForgotPaswordScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 60),
+          const Padding(
+            padding: EdgeInsets.only(top: 60),
             child: Text('Please enter your email', style: TextStyle(fontSize: 40,), textAlign: TextAlign.center,),
           ),
           Padding(

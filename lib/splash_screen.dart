@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:humming_art/auth/model/sign_in_check.dart';
-import 'auth/screens/sign_in_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

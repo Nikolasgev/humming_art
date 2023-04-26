@@ -12,22 +12,21 @@ class Gallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return BGforScreens(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text('Gallery'),
+          title: const Text('Gallery'),
         ),
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.transparent,
-          color: Color.fromARGB(255, 36, 27, 17),
-          animationDuration: Duration(milliseconds: 300),
+          color: const Color.fromARGB(255, 36, 27, 17),
+          animationDuration: const Duration(milliseconds: 300),
           onTap: (index) {
-            //TODO  
+            //TODO  add navigation to screens in bottom nav bar
           },
-          items: [
+          items: const [
             Icon(Icons.person),
             Icon(Icons.image),
             Icon(Icons.gavel),
@@ -44,7 +43,7 @@ class Gallery extends StatelessWidget {
                   mainAxisSpacing: 35),
               itemCount: 8,
               itemBuilder: (BuildContext ctx, index) {
-                return MyCard();
+                return const MyCard();
               }),
         ),
       ),

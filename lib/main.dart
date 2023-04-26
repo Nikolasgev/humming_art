@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: ThemeData.dark(),
-      home: SplashScreen(),
+      home: Gallery(),
       theme: ThemeData(useMaterial3: true),
     );
   }

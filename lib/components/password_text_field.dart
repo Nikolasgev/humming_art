@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class ComonTextField extends StatefulWidget {
-  const ComonTextField({super.key, required this.icon, required this.hintText, required this.controller,});
+class PasswordTextField extends StatefulWidget {
+  const PasswordTextField({super.key, required this.icon, required this.hintText, required this.controller,});
 
   final IconData icon;
   final String hintText;
   final TextEditingController controller;
 
   @override
-  State<ComonTextField> createState() => _ComonTextFieldState();
+  State<PasswordTextField> createState() => _PasswordTextField();
 }
 
-class _ComonTextFieldState extends State<ComonTextField> {
+class _PasswordTextField extends State<PasswordTextField> {
+
+  bool _obscureText = true;
+
+  void _toggleObscureText() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +52,16 @@ class _ComonTextFieldState extends State<ComonTextField> {
                             child:  Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 16),
                               child: TextField(
+                                
+                                obscureText: _obscureText,
                                 style: const TextStyle(color: Colors.white),
                                 controller: widget.controller,
                                 decoration: InputDecoration(
+                                  
                                   hintText: widget.hintText,
+                                  suffixIcon: GestureDetector(
+          onTap: _toggleObscureText,
+          child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),),
                                   hintStyle: const TextStyle(color: Color.fromRGBO(144, 144, 144, 100),),
                                   border: InputBorder.none,
                                 ),
