@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:humming_art/Gallery/gallery_screen.dart';
-import 'package:humming_art/splash_screen.dart';
+import 'adding_cards.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: ThemeData.dark(),
-      home: Gallery(),
+      home: AddingCardScreen(),
       theme: ThemeData(useMaterial3: true),
     );
   }

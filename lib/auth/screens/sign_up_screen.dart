@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
-import 'package:humming_art/components/password_text_field.dart';
+import 'package:humming_art/components/TextFields/password_text_field.dart';
 import 'package:humming_art/components/sign_button.dart';
 
-import '../../components/text_field.dart';
+import '../../components/TextFields/text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
   final VoidCallback showSignInPage;
@@ -110,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
     
-            SignButton(onTap: signUp, text: 'Sign Up')
+            CommonButton(onTap: signUp, text: 'Sign Up')
             
           ],
         ),

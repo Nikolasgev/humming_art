@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
 import 'package:humming_art/components/sign_button.dart';
-import 'package:humming_art/components/text_field.dart';
+import 'package:humming_art/components/TextFields/text_field.dart';
 
 class ForgotPaswordScreen extends StatefulWidget {
   const ForgotPaswordScreen({super.key,});
@@ -65,7 +65,7 @@ class _ForgotPaswordScreenState extends State<ForgotPaswordScreen> {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: SignButton(onTap: passwordReset, text: 'Send Link'),
+        child: CommonButton(onTap: passwordReset, text: 'Send Link'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     )

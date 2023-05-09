@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../components/card.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Gallery extends StatelessWidget {
-  Gallery({super.key});
-
-  final List<Map> myProducts =
-    List.generate(10, (index) => {"id": index, "name": "Product $index"}).toList();
-    
+  const Gallery({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +14,11 @@ class Gallery extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
           title: const Text('Gallery'),
         ),
         bottomNavigationBar: CurvedNavigationBar(
+          index: 1,
           backgroundColor: Colors.transparent,
           color: const Color.fromARGB(255, 36, 27, 17),
           animationDuration: const Duration(milliseconds: 300),
@@ -32,19 +31,33 @@ class Gallery extends StatelessWidget {
             Icon(Icons.gavel),
           ]
         ),
-        body: Padding(
+        body: 
+        Padding(
           padding: const EdgeInsets.all(8.0),
-          // implement GridView.builder
-          child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          child: 
+            StreamBuilder<QuerySnapshot>(
+  stream: FirebaseFirestore.instance.collection('products').snapshots(),
+  builder: (context, snapshot) {
+    if (!snapshot.hasData) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    return GridView(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
                   childAspectRatio:2/3,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 35),
-              itemCount: 8,
-              itemBuilder: (BuildContext ctx, index) {
-                return const MyCard();
-              }),
+      children: snapshot.data!.docs.map((document) {
+        return MyCard(
+          name: document['name'],
+          author: document['author'],
+          price: document['price'],
+          imageURL: document['imageURL']
+        );
+      }).toList(),
+    );
+  },
+)
         ),
       ),
     );

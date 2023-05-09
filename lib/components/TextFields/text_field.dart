@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ComonTextField extends StatefulWidget {
-  const ComonTextField({super.key, required this.icon, required this.hintText, required this.controller,});
+  const ComonTextField({super.key, required this.icon, required this.hintText, required this.controller, this.kType});
 
   final IconData icon;
   final String hintText;
   final TextEditingController controller;
+  final TextInputType? kType;
 
   @override
   State<ComonTextField> createState() => _ComonTextFieldState();
@@ -44,6 +45,7 @@ class _ComonTextFieldState extends State<ComonTextField> {
                             child:  Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 16),
                               child: TextField(
+                                keyboardType: widget.kType,
                                 style: const TextStyle(color: Colors.white),
                                 controller: widget.controller,
                                 decoration: InputDecoration(
