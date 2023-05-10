@@ -1,13 +1,16 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:humming_art/Gallery/gallery_screen.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
-import 'package:humming_art/components/sign_button.dart';
+import 'package:humming_art/components/common_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'components/TextFields/text_field.dart';
+import 'home_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class AddingCardScreen extends StatefulWidget {
@@ -23,7 +26,15 @@ class _AddingCardScreenState extends State<AddingCardScreen> {
   final _priceController = TextEditingController();
   File? image;
 
-
+void errorToast(String msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        backgroundColor: Colors.red,
+        textColor: Colors.black,
+        fontSize: 16.0);
+  }
 
 Future pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -92,22 +103,15 @@ void addProductWithPhoto({required String name, required String author, required
                 price: int.parse(_priceController.text.trim()),
                 uid: FirebaseAuth.instance.currentUser!.uid,
               );
-              () {Navigator.push(context, 
+              Navigator.pushReplacement(context, 
                         MaterialPageRoute(builder: (context) {
-                          return Gallery();
+                          return HomePage();
                             })
                           );
-                        };
               } else if(_nameController.text.isEmpty || _authorController.text.isEmpty || _priceController.text.isEmpty || FirebaseAuth.instance.currentUser!.uid.isEmpty || image == null) {
-                showDialog(context: context, builder:(BuildContext context) => const AlertDialog(
-                  title: Center(child: Text('Not all data is filled')),
-                  ),
-                );
+                errorToast('Not all data is filled');
               } else {
-                showDialog(context: context, builder:(BuildContext context) => const AlertDialog(
-                  title: Center(child: Text('Error')),
-                  ),
-                );
+                errorToast('Not all data is filled');
               }
             },
             text: 'Create card'),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:humming_art/components/bg_for_screens.dart';
-import 'package:humming_art/components/sign_button.dart';
+import 'package:humming_art/components/common_button.dart';
 import 'package:humming_art/components/TextFields/text_field.dart';
 import '../../components/TextFields/password_text_field.dart';
+import '../../profile_page.dart';
 import 'forgot_pw_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -24,7 +25,13 @@ class _SignInScreenState extends State<SignInScreen> {
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim()
       );
-    
+      
+    // ignore: use_build_context_synchronously
+    Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) {
+                          return const ProfilePage();
+                            })
+                          );
   }
 
   @override
